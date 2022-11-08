@@ -1,11 +1,35 @@
 <%= form_with model: task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <%= f.label :title, :class => 'form-label' %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-12 col-lg-6">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <%= f.label :details, :class => 'form-label' %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-12 col-lg-6">
+      <%= f.text_area :details, :class => 'form-control' %>
+    </div>
+  </div>
   <% if task.persisted? %>
-    <%= f.label :completed %>
-    <%= f.check_box :completed %>
+    <div class="row mb-2">
+      <div class="col-12 col-lg-6">
+        <%= f.check_box :completed %>
+        <%= f.label :completed, "This task is completed" %>
+      </div>
+    </div>
   <% end %>
-  <%= f.submit %>
+  <div class="row mt-2">
+    <div class="col-12 col-lg-6">
+      <%= f.submit :class => 'btn btn-primary' %>
+    </div>
+  </div>
 <% end %>

@@ -3,7 +3,8 @@
 <ol>
   <% @tasks.each do |task| %>
     <li>
-        <%= task.completed ? "[X]" : "[ ]" %>
+        <% check_icon = task.completed ? "fa-square-check" : "fa-square" %>
+        <i class="fa-regular <%= check_icon %>"></i>
         <%= link_to task.title, task_path(task) %>
         (<%= task.details %>)
         <%= link_to "✏️", edit_task_path(task) %>

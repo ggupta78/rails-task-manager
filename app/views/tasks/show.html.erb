@@ -1,4 +1,9 @@
 <h1><%= @task.title %></h1>
 <p><%= @task.details %></p>
-<p>This tasks is <%= @task.completed ? "complete!" : "not completed yet!" %></p>
+
+<p>
+  <% check_icon = @task.completed ? "fa-square-check" : "fa-square" %>
+  <i class="fa-regular <%= check_icon %>"></i>
+  This tasks is <%= @task.completed ? "complete!" : "not completed yet!" %>
+</p>
 <%= link_to "Back to tasks", tasks_path %>
