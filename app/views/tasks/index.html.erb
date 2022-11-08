@@ -2,6 +2,8 @@
 
 <ol>
   <% @tasks.each do |task| %>
-    <li> <%= task.completed ? "[X]" : "[ ]" %> <%= task.title%> (<%= task.details %>)</li>
+    <li> <%= task.completed ? "[X]" : "[ ]" %> <%= link_to task.title, show_path(task) %> (<%= task.details %>)</li>
   <% end %>
 </ol>
+
+<%= link_to "+ Add a task", tasks_new_path %>
