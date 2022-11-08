@@ -2,7 +2,14 @@
 
 <ol>
   <% @tasks.each do |task| %>
-    <li> <%= task.completed ? "[X]" : "[ ]" %> <%= link_to task.title, show_path(task) %> (<%= task.details %>)</li>
+    <li>
+        <%= task.completed ? "[X]" : "[ ]" %>
+        <%= link_to task.title, task_path(task) %>
+        (<%= task.details %>)
+        <%= link_to "✏️", edit_task_path(task) %>
+        <%= link_to "🗑", task_path(task), data: {turbo_method: :delete,
+          turbo_confirm: "Are you sure?"} %>
+    </li>
   <% end %>
 </ol>
 
